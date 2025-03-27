@@ -8,7 +8,7 @@ import "./App.css";
 import YoutubeList from "./components/youtube/YoutubeList";
 
 function App() {
-  const name = "iFanIT";
+  const name = "iFanIT nè";
   return (
     <div>
       <YoutubeList>
