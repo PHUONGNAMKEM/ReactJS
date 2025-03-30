@@ -1,9 +1,6 @@
 // import "./App.css";
-import React, { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import "./index.scss";
-import TextAreaAutoResize from "./components/TextAreaAutoResize";
-// import StopWatch from "./components/StopWatch";
-// import Input from "./components/Input";
 // import Counter from "./components/counter/Counter";
 // import Header from "./components/Header";
 // import HackerNews from "./components/news/HackerNews";
@@ -15,13 +12,15 @@ import TextAreaAutoResize from "./components/TextAreaAutoResize";
 // import CardList from "./components/card/CardList";
 
 function App() {
-  return (
-    <div>
-      {/* <StopWatch></StopWatch> */}
-      {/* <Input></Input> */}
-      <TextAreaAutoResize></TextAreaAutoResize>
-    </div>
-  );
+  const countRef = useRef(0);
+
+  // truy xuất giá trị => .current
+  // update giá trị => .current = new Value
+  // khác với state: khi state thay đổi thì component sẽ re-render lại
+  // còn ref thay đổi thì component không re-render lại
+  console.log(">>> check countref: ", countRef.current);
+
+  return <div></div>;
 }
 
 export default App;

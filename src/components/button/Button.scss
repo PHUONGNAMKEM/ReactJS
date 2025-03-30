@@ -1,0 +1,35 @@
+$width-button: 300px;
+$border-radius-button: 8px;
+$padding-button: 20px 30px;
+
+%button-base {
+  display: inline-block;
+  padding: $padding-button;
+  font-size: 16px;
+  border-radius: border-radius-button;
+  width: $width-button;
+  border: none;
+  outline: none;
+}
+
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+}
+
+.button {
+  @include button-style(#2979ff, white);
+  margin: 25px - 15px;
+  @extend %button-base;
+
+  // ở đây tức nghĩa là 1 class tên là: "button--secondary" thì sẽ được áp dụng style này
+  &--secondary {
+    background-color: #0dee6f;
+  }
+  &:hover {
+    background-color: rgb(15, 39, 225);
+  }
+  &--secondary:hover {
+    background-color: rgb(7, 180, 33);
+  }
+}
