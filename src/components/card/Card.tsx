@@ -112,16 +112,23 @@ const CardIcon = styled.svg`
 `;
 
 interface CardProps {
+  cardImg?: string;
+  userAvatar?: string;
+  userName?: string;
+  cardTitle?: string;
+  amountRate?: string | number;
+  amount?: string | number;
   secondary?: boolean;
 }
 
 function Card(props: CardProps) {
+  const { cardImg, userAvatar, userName, cardTitle, amount, amountRate, secondary } = props;
   console.log(">>> check prop of card", props);
   return (
     <StyledCard>
       <CardImage>
         <CardImg
-          src="https://cdn.dribbble.com/userupload/33476220/file/original-d4ca59ef4ed0cbb2bb3600be756e5d74.png?resize=1504x1128&vertical=center"
+          src={cardImg}
           alt=""
         />
       </CardImage>
@@ -130,22 +137,22 @@ function Card(props: CardProps) {
         <CardTop>
           <CardUser>
             <UserAvatar
-              src="https://cdn.dribbble.com/userupload/33476220/file/original-d4ca59ef4ed0cbb2bb3600be756e5d74.png?resize=1504x1128&vertical=center"
+              src={userAvatar}
               alt=""
             />
-            <UserName>@zndrson</UserName>
+            <UserName>{userName}</UserName>
           </CardUser>
           <CardRight style={{ color: "#FF2161" }}>
-            <span style={{ color: "#232020" }}>256</span>
+            <span style={{ color: "#232020" }}>{amountRate}</span>
             <CardIcon
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               viewBox="0 0 24 24"
               stroke-width="1"
               stroke="currentColor"
-              className="w-1 h-1"
-              width={20}
-              height={20}
+              className="w-7 h-7"
+              width={30}
+              height={30}
             >
               <path
                 stroke-linecap="round"
@@ -156,9 +163,9 @@ function Card(props: CardProps) {
           </CardRight>
         </CardTop>
         <CardFooter>
-          <CardTitle>Cosmic Perspective</CardTitle>
+          <CardTitle>{cardTitle}</CardTitle>
           <CardAmount secondary={props.secondary} fontSize="22px">
-            12,000 PSL
+            {amount}
           </CardAmount>
         </CardFooter>
       </CardContent>
